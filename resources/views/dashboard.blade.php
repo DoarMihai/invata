@@ -15,6 +15,9 @@
 
                             ----
                             poate facem si quiz-uri
+                            ----
+                            tabele:
+                                enrolled_paths- id, path_id, user_id, last_lesson_id
                         </div>
                     </div>
                 </div>
