@@ -16,10 +16,10 @@ class PathController extends Controller
             ->where('user_id', auth()->user()->id)
             ->first();
 
-        $message = 'Te-ai inscris la cursul `'.$path->name.'`!';
-
+        $message = 'Esti deja inscris la cursul `'.$path->name.'`!';
+        
         if (!$isEnrolled) {
-            $message = 'Esti deja inscris la cursul `'.$path->name.'`!';
+            $message = 'Te-ai inscris la cursul `'.$path->name.'`!';
             EnrolledPaths::create([
                 'path_id' => $path->id,
                 'user_id' => auth()->user()->id,
