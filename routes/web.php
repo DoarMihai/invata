@@ -11,6 +11,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PathController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,8 @@ Route::get('/', [MainPageController::class, 'index'])->name('home');
 
 
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+Route::get('/path/enroll/{slug}', [PathController::class, 'enroll'])->name('path.enroll');
 Route::get('/path/{slug}', [HomeController::class, 'path'])->name('path');
 Route::get('/path/{path}/lesson/{slug}', [HomeController::class, 'lesson'])->name('path.lesson');
 

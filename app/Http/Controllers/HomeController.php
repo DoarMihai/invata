@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EnrolledPaths;
+use App\Models\Path;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,14 +25,25 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //dashboard
-        return view('dashboard');
+        $paths = Path::all();
+        $enrolledPaths = EnrolledPaths::with('path')->where('user_id', auth()->user()->id)
+            ->get();
+
+        $enrolled = [];
+
+        foreach($enrolledPaths as $path) {
+            $enrolled[$path->path_id] = $path;
+        }
+
+        return view('dashboard', compact('paths', 'enrolledPaths', 'enrolled'));
     }
 
     //path
-    public function path()
+    public function path(string $pathSlug)
     {
-        return view('path');
+        $path = Path::where('slug', $pathSlug)->firstOrFail();
+
+        return view('path', compact('path'));
     }
 
     //lesson
