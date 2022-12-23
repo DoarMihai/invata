@@ -31,13 +31,14 @@
                                                 <td>{{ $path->name }}</td>
                                                 <td>{{ $path->content }}</td>
                                                 <td>
-                                                    @if(isset($enrolled[$path->id]))
-                                                        <em>Esti deja inscris la acest curs!</em>
-                                                    @else
+                                                    @if(!isset($enrolled[$path->id]))
                                                         <a href="{{ route('path.enroll', $path->slug) }}" class="btn btn-sm btn-success">
                                                             Inscrie-te!
                                                         </a>
                                                     @endif
+                                                    <a href="{{ route('path.show', $path->slug) }}" class="btn btn-sm btn-info">
+                                                        Vezi curs
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach

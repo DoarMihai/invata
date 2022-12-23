@@ -38,13 +38,7 @@ class HomeController extends Controller
         return view('dashboard', compact('paths', 'enrolledPaths', 'enrolled'));
     }
 
-    //path
-    public function path(string $pathSlug)
-    {
-        $path = Path::where('slug', $pathSlug)->firstOrFail();
 
-        return view('path', compact('path'));
-    }
 
     //lesson
     public function lesson()

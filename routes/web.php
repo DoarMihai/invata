@@ -37,8 +37,10 @@ Route::get('/', [MainPageController::class, 'index'])->name('home');
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 Route::get('/path/enroll/{slug}', [PathController::class, 'enroll'])->name('path.enroll');
-Route::get('/path/{slug}', [HomeController::class, 'path'])->name('path');
-Route::get('/path/{path}/lesson/{slug}', [HomeController::class, 'lesson'])->name('path.lesson');
+
+Route::get('/path/{slug}', [PathController::class, 'show'])->name('path.show');
+
+Route::get('/path/{path}/lesson/{slug}', [PathController::class, 'lesson'])->name('path.lesson');
 
 Route::get('/almanach', [HomeController::class, 'almanach'])->name('almanach');
 Route::get('/almanach/{itemSlug}', [HomeController::class, 'almanachItem'])->name('almanach.item');

@@ -3,11 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\EnrolledPaths;
+use App\Models\Lesson;
 use App\Models\Path;
 use Illuminate\Http\Request;
 
 class PathController extends Controller
 {
+    public function show(string $pathSlug)
+    {
+        $path = Path::where('slug', $pathSlug)->firstOrFail();
+        $lessons = Lesson::where('path_id', $path->id)->get();
+
+        return view('path.show', compact('path', 'lessons'));
+    }
+
     public function enroll(string $pathSlug)
     {
         $path = Path::where('slug', $pathSlug)->first();
@@ -17,7 +26,7 @@ class PathController extends Controller
             ->first();
 
         $message = 'Esti deja inscris la cursul `'.$path->name.'`!';
-        
+
         if (!$isEnrolled) {
             $message = 'Te-ai inscris la cursul `'.$path->name.'`!';
             EnrolledPaths::create([
@@ -27,5 +36,18 @@ class PathController extends Controller
         }
 
         return redirect()->back()->with('success', $message);
+    }
+
+    public function lesson(string $pathSlug, string $lessonSlug)
+    {
+        $path = Path::where('slug', $pathSlug)->first();
+
+        $pathLessons = Lesson::where('path_id', $path->id)
+            ->orderBy('id', 'ASC')
+            ->get();
+
+        $lesson = Lesson::where('slug', $lessonSlug)->first();
+
+        return view('path.lesson', compact('path', 'lesson', 'pathLessons'));
     }
 }

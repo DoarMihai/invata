@@ -12,22 +12,22 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-link">
                     <a href="{{ route('home') }}">
-                        Home
+                        < Home />
                     </a>
                 </li>
                 <li class="nav-link">
                     <a href="{{ route('page', 'about') }}">
-                        About
+                        < About />
                     </a>
                 </li>
                 <li class="nav-link">
                     <a href="{{ route('page', 'almanach') }}">
-                        Almanach
+                        < Almanach />
                     </a>
                 </li>
                 <li class="nav-link">
                     <a href="{{ route('contact') }}">
-                        Contact
+                        < Contact />
                     </a>
                 </li>
             </ul>
