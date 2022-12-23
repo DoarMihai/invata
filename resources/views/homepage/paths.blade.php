@@ -1,7 +1,20 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-md-12">
-            paths
-        </div>
+        @foreach($paths as $path)
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="text-center">
+                            {{ $path->name }}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        description
+                        <hr>
+                        <a href="" class="btn btn-primary d-block">Inscrie-te</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
 </div>

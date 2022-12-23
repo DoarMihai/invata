@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Admin\PathsController;
 use App\Http\Controllers\Admin\SectionsController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\PageController;
@@ -39,6 +40,7 @@ Route::get('/path/{path}/lesson/{slug}', [HomeController::class, 'lesson'])->nam
 Route::get('/almanach', [HomeController::class, 'almanach'])->name('almanach');
 Route::get('/almanach/{itemSlug}', [HomeController::class, 'almanachItem'])->name('almanach.item');
 
+Route::get('/page/contact', [ContactController::class, 'show'])->name('contact');
 Route::get('/page/{slug}', [PageController::class, 'show'])->name('page');
 
 Route::prefix('/gnipahellir')->middleware(['auth', 'is.admin'])->group(function (){
