@@ -1,0 +1,17 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+body{
+    background-image: url("../img/dust_scratches.png");
+}
+
+.card{
+    border: 0;
+    box-shadow: 1px 1px 1px #ccc;
+}
