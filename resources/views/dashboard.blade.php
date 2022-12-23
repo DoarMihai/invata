@@ -1,7 +1,25 @@
-dashboard
+@extends('layouts.guest')
 
-- path-uri la care s-a inscris
-- progresul la path-urile alese
+@section('content')
+    <main class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">Dashboard</div>
+                        <div class="card-body">
+                            dashboard
 
-----
-poate facem si quiz-uri
+                            - path-uri la care s-a inscris
+                            - progresul la path-urile alese
+
+                            ----
+                            poate facem si quiz-uri
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+@endsection
+

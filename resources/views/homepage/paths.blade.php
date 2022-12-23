@@ -9,7 +9,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        description
+                        {{ $path->content }}
                         <hr>
                         <a href="" class="btn btn-primary d-block">Inscrie-te</a>
                     </div>

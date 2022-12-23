@@ -8,7 +8,7 @@
             </div>
             <hr>
             <div class="col-md-6">
-                <img src="{{ asset('/img/almanach/'.rand(1, 3).'.jpg') }}" alt="Almanach - o colectie de informatii despre tot ce stie acest limbaj.">
+                <img src="{{ asset('/img/almanach/'.rand(1, 3).'.jpg') }}" alt="Almanach - o colectie de informatii despre tot ce stie acest limbaj." class="almanach-picture">
             </div>
             <div class="col-md-6">
                 <p>Almanahul este o librarie cu toate functionalitatile limbajului alaturi de exemple.</p>

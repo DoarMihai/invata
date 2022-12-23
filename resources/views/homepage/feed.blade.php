@@ -3,8 +3,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="text-center">
-                    <h2>Articole din retea</h2>
+                    <h2>⍟ Articole din retea ⍟</h2>
                 </div>
+                <hr>
                 feed invata-programare
             </div>
         </div>

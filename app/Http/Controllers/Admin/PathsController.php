@@ -24,7 +24,7 @@ class PathsController extends Controller
 
     public function store(PathRequest $request)
     {
-        $data = $request->only(['name']);
+        $data = $request->only(['name', 'content']);
         $data['slug'] = Str::slug($data['name']);
 
         $path = Path::create($data);
@@ -45,6 +45,7 @@ class PathsController extends Controller
 
         $path->name = $request->get('name');
         $path->slug = Str::slug($request->get('name'));
+        $path->content = $request->get('content');
         $path->save();
 
         return redirect()->back()->with('success', 'Path updated!');

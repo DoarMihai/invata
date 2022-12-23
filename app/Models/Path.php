@@ -12,5 +12,6 @@ class Path extends Model
     protected $fillable = [
         'name',
         'slug',
+        'content',
     ];
 }

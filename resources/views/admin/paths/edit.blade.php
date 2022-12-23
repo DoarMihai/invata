@@ -19,6 +19,14 @@
                                 <label for="">Name</label>
                                 <input type="text" class="form-control" name="name" value="{{ $path->name }}">
                             </div>
+                            <div class="form-group">
+                                <label for="">Slug</label>
+                                <input type="text" class="form-control" name="slug" id="slug" value="{{ $path->slug }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Content</label>
+                                <x-easy-mde name="content">{{ $path->content }}</x-easy-mde>
+                            </div>
                             <br>
                             <div class="form-group">
                                 <div class="float-end">
