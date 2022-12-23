@@ -48,6 +48,17 @@ class PathController extends Controller
 
         $lesson = Lesson::where('slug', $lessonSlug)->first();
 
-        return view('path.lesson', compact('path', 'lesson', 'pathLessons'));
+        // mark the lesson as last seen by user
+        $enrolledPaths = EnrolledPaths::where('path_id', $path->id)
+            ->where('user_id', auth()->user()->id)
+            ->first();
+
+        $enrolledPaths->last_lesson_id = $lesson->id;
+        $enrolledPaths->save();
+
+        $previousLesson = Lesson::where('id', $lesson->id - 1)->first();
+        $nextLesson = Lesson::where('id', $lesson->id + 1)->first();
+
+        return view('path.lesson', compact('path', 'lesson', 'pathLessons', 'previousLesson', 'nextLesson'));
     }
 }

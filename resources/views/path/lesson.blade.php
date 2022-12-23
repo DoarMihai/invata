@@ -23,12 +23,16 @@
                         </div>
                     </div>
                     <br>
-                    <a href="" class="btn btn-sm btn-success">
-                        Lectia precedenta
-                    </a>
-                    <a href="" class="btn btn-sm btn-success float-end">
-                        Lectia urmatoare
-                    </a>
+                    @if($previousLesson)
+                        <a href="{{ route('path.lesson', [$path->slug, $previousLesson->slug]) }}" class="btn btn-sm btn-success">
+                            Lectia precedenta
+                        </a>
+                    @endif
+                    @if($nextLesson)
+                        <a href="{{ route('path.lesson', [$path->slug, $nextLesson->slug]) }}" class="btn btn-sm btn-success float-end">
+                            Lectia urmatoare
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
